@@ -5,6 +5,7 @@ import { FontAwesomeIcon, faSearch } from '../../Assets/icons/icons';
 import dummyface1 from '../../Assets/images/dummyface1.jpg'
 import { useDispatch } from 'react-redux';
 import { sortPosts } from '../../Features/postsSlice';
+import { ProfileLargeThubmnail } from '../ProfileThumbnail/ProfileLargeThubmnail';
 
 const SideSection = () => {
     const dispatch = useDispatch()
@@ -27,38 +28,14 @@ const SideSection = () => {
                 <input className="search-bar" type="text" placeholder="Search ..." />
                 <FontAwesomeIcon icon={faSearch} className="nav-search" />
             </div>
-            <p>Suggested Users</p>
+            <p>Suggested Users for You</p>
             <div className='user-listing flex-col'>
-                <div className='listed-user-profile'>
-                    <div className="avatar rg">
-                        <img className="avatar-img" src={dummyface1} alt="profile" />
-                    </div>
-                    <div>
-                        <p>The Rick Ruler</p>
-                        <p>@evilmorty</p>
-                    </div>
-                </div>
-                <div className='listed-user-profile'>
-                    <div className="avatar rg">
-                        <img className="avatar-img" src={dummyface1} alt="profile" />
-                    </div>
-                    <div>
-                        <p>The Rick Ruler</p>
-                        <p>@evilmorty</p>
-                    </div>
-                </div>
-                <div className='listed-user-profile'>
-                    <div className="avatar rg">
-                        <img className="avatar-img" src={dummyface1} alt="profile" />
-                    </div>
-                    <div>
-                        <p>The Rick Ruler</p>
-                        <p>@evilmorty</p>
-                    </div>
-                </div>
-
+                <ProfileLargeThubmnail />
+                <ProfileLargeThubmnail />
+                <ProfileLargeThubmnail />
+                <ProfileLargeThubmnail />
+                <ProfileLargeThubmnail />
             </div>
-
         </aside>
     )
 }

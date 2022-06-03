@@ -1,5 +1,6 @@
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
 import axios from 'axios'
+import { getTrendingPosts } from "../Utils/getTrendingPosts";
 
 const namespace = 'posts'
 
@@ -9,6 +10,8 @@ export const getPosts = createAsyncThunk(`/${namespace}/getPosts`, async () => {
     return data.posts
 })
 
+
+
 export const postsSlice = createSlice({
     name: namespace,
     initialState: { posts: [], status: null },
@@ -16,8 +19,9 @@ export const postsSlice = createSlice({
         sortPosts: (state, action) => {
             switch (action.payload) {
                 case "trending":
-                    console.log(new Date())
-                    state.posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt) || b.likes.likeCount - a.likes.likeCount)
+                    console.log("in trending ", current(state.posts))
+                    state.posts = getTrendingPosts(current(state.posts))
+                    // state.posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                     break;
                 case 'newest':
                     state.posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
@@ -28,7 +32,6 @@ export const postsSlice = createSlice({
                 default:
                     return state.posts;
             }
-
         },
     },
     extraReducers: {
@@ -36,7 +39,7 @@ export const postsSlice = createSlice({
             state.status = 'loading'
         },
         [getPosts.fulfilled]: (state, { payload }) => {
-            state.posts = payload.sort((a, b) => new Date(a.createdAt) - new Date(b.createdAt))
+            state.posts = payload.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
             state.status = 'success'
         },
         [getPosts.rejected]: (state, { payload }) => {

@@ -8,7 +8,7 @@ import { getPostDate } from '../../Utils/getPostDate'
 
 const UserPost = ({ props }) => {
 
-    const { content, likes: { likeCount, likedBy }, username, comments, createdAt, updatedAt } = props
+    const { content, likes: { likeCount, likedBy }, username, firstName, lastName, comments, createdAt, updatedAt, } = props
     const [toggleComments, setToggleComments] = useState(false);
     const [disabledComments, setDisabledComments] = useState(true);
     const [commentInput, setCommentInput] = useState('');
@@ -35,7 +35,7 @@ const UserPost = ({ props }) => {
                 <div><PostDrawer hideDrawer={() => setToggleDrawer(false)} /></div>
             }
             <div className='creator-row flex-row'>
-                <ProfileThumbnail username={username} />
+                <ProfileThumbnail username={firstName + lastName} />
                 <p className='light-grey-txt'>@{username} .</p>
                 <p className='light-grey-txt'>{createdDateTxt}</p>
                 <div className='space'></div>

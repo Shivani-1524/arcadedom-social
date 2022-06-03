@@ -1,0 +1,13 @@
+.page-layout {
+    padding-top: 4.9rem;
+    display: grid;
+    grid-template-columns: 24rem 1fr;
+    height: 100vh;
+    width: 100vw;
+    grid-column-start: 2/3;
+  }
+
+  .outlet-container{
+    grid-column: 2/3;
+  }
+  

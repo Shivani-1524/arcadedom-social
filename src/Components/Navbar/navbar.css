@@ -1,0 +1,56 @@
+.navbar {
+  padding: 5px 2.3rem;
+  background-color: var(--dark-bg);
+}
+
+.nav-logo img {
+    width: 2.6rem;
+    height: 2.6rem;
+    object-fit: contain;
+  }
+  
+  .nav-logo {
+    padding: 10px;
+  }
+  
+  
+  .logout-icon::before {
+    content: "\f2f5";
+  }
+
+.icon-btn.hide-md.dark-bg-icon, .icon-btn.show-md.dark-bg-icon{
+  width: 1.6rem;
+  height: 1.6rem;
+}
+
+
+
+.navicon-link{
+  color: var(--creamy-color);
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.navicon-link:hover{
+  color: var(--violet-color);
+}
+.navicon-link.active-link:hover{
+  color: var(--violet-color);
+}
+
+.active-link{
+  color: var(--violet-color);
+  font-weight: 600;
+}
+
+nav .dark-bg-icon {
+  padding: 6px;
+  font-size: 1.5rem;
+}
+nav .dark-bg-icon:hover {
+  width: min-content;
+  height: min-content;
+  background-color: transparent;
+}

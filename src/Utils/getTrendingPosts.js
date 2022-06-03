@@ -16,5 +16,11 @@ export const getTrendingPosts = (posts) => {
         recentPosts.push(newSortedPost[i])
     }
     console.log("return ", [...recentPosts.sort((a, b) => b.likes.likeCount - a.likes.likeCount)])
-    return [...recentPosts.sort((a, b) => b.likes.likeCount - a.likes.likeCount), ...newSortedPost.slice(olderPostIndex).sort((a, b) => b.likes.likeCount - a.likes.likeCount)]
+    return [...recentPosts.sort((a, b) => {
+        if (b.likes.likeCount > a.likes.likeCount) return 1
+        if (a.likes.likeCount > b.likes.likeCount) return -1
+        if (b.comments.length > a.comments.length) return 1
+        if (a.comments.length > b.comments.length) return -1
+        return 0;
+    }), ...newSortedPost.slice(olderPostIndex).sort((a, b) => b.likes.likeCount - a.likes.likeCount)]
 }

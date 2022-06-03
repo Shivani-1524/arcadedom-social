@@ -1,0 +1,17 @@
+.post-input{
+    background-color: var(--dark-bg);
+    margin: auto;
+    display: block;
+    width: 100%;
+    min-height: 10rem;
+    border: none;
+    padding: 20px;
+    color: var(--white);
+}
+.post-media-row.flex-row{
+    justify-content: space-between;
+    padding: 10px 30px;
+    padding-left: 30px;
+    font-size: 1.3rem;
+    background-color: var(--dark-bg);
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import { faCodeBranch, faLinkedin, FontAwesomeIcon, faMedium, faTwitter } from '../Assets/icons/icons'
 
-
 const Footer = () => {
     return (
         <footer className="docs-footer white-bg">
@@ -25,5 +24,6 @@ const Footer = () => {
         </footer>
     )
 }
+
 
 export { Footer }

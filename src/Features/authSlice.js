@@ -40,7 +40,7 @@ export const authSlice = createSlice({
         }
     },
     extraReducers: {
-        [loginUser.pending]: (state, action) => {
+        [loginUser.pending]: (state) => {
             state.status = 'loading'
         },
         [loginUser.fulfilled]: (state, { payload }) => {
@@ -54,7 +54,7 @@ export const authSlice = createSlice({
             state.status = 'failed';
             state.authError = payload.errors;
         },
-        [signupUser.pending]: (state, action) => {
+        [signupUser.pending]: (state) => {
             state.status = 'loading'
         },
         [signupUser.fulfilled]: (state, { payload }) => {

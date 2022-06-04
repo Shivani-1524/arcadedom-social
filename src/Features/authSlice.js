@@ -1,11 +1,11 @@
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 const namespace = 'auth'
 
 export const loginUser = createAsyncThunk(`/${namespace}/loginUser`, async (loginData, { rejectWithValue }) => {
     try {
-        const { data } = await axios.post("/api/auth/login", { ...loginData })
+        const { data } = await axios.post("/api/auth/login", { ...loginData });
         return data
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -14,7 +14,7 @@ export const loginUser = createAsyncThunk(`/${namespace}/loginUser`, async (logi
 
 export const signupUser = createAsyncThunk(`/${namespace}/signupUser`, async (signupData, { rejectWithValue }) => {
     try {
-        const { data } = await axios.post("/api/auth/signup", { ...signupData })
+        const { data } = await axios.post("/api/auth/signup", { ...signupData });
         return data
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -33,15 +33,15 @@ export const authSlice = createSlice({
     initialState: initialStateValue,
     reducers: {
         userLogout: (state) => {
-            localStorage.removeItem('arcadedomToken')
-            localStorage.removeItem('arcadedomUser')
+            localStorage.removeItem('arcadedomToken');
+            localStorage.removeItem('arcadedomUser');
             state.authToken = null;
             state.currentUser = null;
         }
     },
     extraReducers: {
         [loginUser.pending]: (state) => {
-            state.status = 'loading'
+            state.status = 'loading';
         },
         [loginUser.fulfilled]: (state, { payload }) => {
             state.authToken = payload.encodedToken;
@@ -54,8 +54,9 @@ export const authSlice = createSlice({
             state.status = 'failed';
             state.authError = payload.errors;
         },
+
         [signupUser.pending]: (state) => {
-            state.status = 'loading'
+            state.status = 'loading';
         },
         [signupUser.fulfilled]: (state, { payload }) => {
             state.authToken = payload.encodedToken;
@@ -65,7 +66,7 @@ export const authSlice = createSlice({
             state.status = 'success';
         },
         [signupUser.rejected]: (state, { payload }) => {
-            state.status = 'failed'
+            state.status = 'failed';
             state.authError = payload.errors;
         }
     }

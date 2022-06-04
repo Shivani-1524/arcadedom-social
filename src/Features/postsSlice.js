@@ -6,7 +6,6 @@ const namespace = 'posts'
 
 export const getPosts = createAsyncThunk(`/${namespace}/getPosts`, async () => {
     const { data } = await axios.get("/api/posts")
-    console.log(data)
     return data.posts
 })
 
@@ -19,7 +18,6 @@ export const postsSlice = createSlice({
         sortPosts: (state, action) => {
             switch (action.payload) {
                 case "trending":
-                    console.log("in trending ", current(state.posts))
                     state.posts = getTrendingPosts(current(state.posts))
                     // state.posts.sort((a, b) => new Date(b.createdAt) - new Date(a.createdAt))
                     break;

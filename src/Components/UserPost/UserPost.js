@@ -20,7 +20,6 @@ const UserPost = ({ props }) => {
     const onCommentChange = (e) => {
         let userCommentTxt = e.target.value;
         setCommentInput(userCommentTxt);
-        console.log(userCommentTxt)
         userCommentTxt.length === 0 ? setDisabledComments(true) : setDisabledComments(false);
     }
 

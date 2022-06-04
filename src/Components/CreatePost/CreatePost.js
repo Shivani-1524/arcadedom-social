@@ -8,8 +8,6 @@ const CreatePost = () => {
     const [postDisabled, setPostDisabled] = useState(true);
     const onPostTextChange = (e) => {
         let currentPostText = e.target.value;
-        console.log(currentPostText)
-        console.log(postDisabled)
         setPostInputText(currentPostText);
         setCharacterLimit(charLimit - currentPostText.length)
         currentPostText.length > charLimit || currentPostText.length === 0 ? setPostDisabled(true) : setPostDisabled(false)

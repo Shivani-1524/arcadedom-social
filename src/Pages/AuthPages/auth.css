@@ -1,0 +1,38 @@
+.auth-container {
+    width: 100vw;
+    min-height: max-content;
+    padding: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background-color: var(--primary-color);
+  }
+  
+  .auth-card {
+    width: 30rem;
+    height: fit-content;
+    padding: 2rem 3rem;
+    background-color: var(--dark-bg);
+    border: 2px solid var(--extra-light-grey);
+    border-radius: 7px;
+  }
+  
+  .auth-card.logout {
+    height: auto;
+  }
+  
+  .auth-card button {
+    width: 100%;
+  }
+  .input-flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+  }
+  .btn-darkbg{
+    color: var(--white);
+  }
+  .btn-darkbg:hover{
+    color: var(--primary-color);
+  }

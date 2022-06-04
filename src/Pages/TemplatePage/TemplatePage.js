@@ -5,10 +5,13 @@ import "./templatepage.css"
 import { CreatePost } from '../../Components/CreatePost/CreatePost'
 import { ModalComponent } from '../../Components/ModalComponent/ModalComponent'
 import { useSelector } from 'react-redux'
+import { Navigate, useLocation } from 'react-router-dom'
 
 const TemplatePage = () => {
     const modal = useSelector((state) => state.modal.value)
-    return (
+    const auth = useSelector((state) => state.auth)
+    const location = useLocation()
+    return auth.authToken ? (
         <div className="page-layout">
             <Navbar />
             <SideSection />
@@ -19,6 +22,8 @@ const TemplatePage = () => {
                 <Outlet />
             </div>
         </div>
+    ) : (
+        <Navigate to="/login" state={{ from: location }} replace />
     )
 }
 

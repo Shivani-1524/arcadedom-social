@@ -48,6 +48,7 @@ export const authSlice = createSlice({
             state.currentUser = JSON.stringify(payload.foundUser);
             localStorage.setItem('arcadedomToken', payload.encodedToken);
             localStorage.setItem('arcadedomUser', JSON.stringify(payload.foundUser));
+            axios.defaults.headers.common["authorization"] = payload.encodedToken;
             state.status = 'success';
         },
         [loginUser.rejected]: (state, { payload }) => {
@@ -63,6 +64,7 @@ export const authSlice = createSlice({
             state.currentUser = JSON.stringify(payload.createdUser);
             localStorage.setItem('arcadedomToken', payload.encodedToken);
             localStorage.setItem('arcadedomUser', JSON.stringify(payload.createdUser));
+            axios.defaults.headers.common["authorization"] = payload.encodedToken;
             state.status = 'success';
         },
         [signupUser.rejected]: (state, { payload }) => {

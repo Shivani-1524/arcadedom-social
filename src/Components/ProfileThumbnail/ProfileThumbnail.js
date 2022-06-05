@@ -4,7 +4,7 @@ import './profilethumbnail.css'
 
 const ProfileThumbnail = ({ username }) => {
     return (
-        <div className='flex-row profile-thubnail-wrapper'>
+        <div className='flex-row profile-thubnail-wrapper pointer'>
             <div className="op-avatar avatar sm">
                 <img className="avatar-img" src={dummyface1} alt="original poster profile" />
             </div>

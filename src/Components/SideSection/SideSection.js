@@ -28,7 +28,7 @@ const SideSection = () => {
                 <input className="search-bar" type="text" placeholder="Search ..." />
                 <FontAwesomeIcon icon={faSearch} className="nav-search" />
             </div>
-            <p>Suggested Users for You</p>
+            <p>Find Your Buddies</p>
             <div className='user-listing flex-col'>
                 <ProfileLargeThubmnail />
                 <ProfileLargeThubmnail />

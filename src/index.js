@@ -5,9 +5,15 @@ import App from "./App";
 import { makeServer } from "./server";
 import { BrowserRouter as Router } from "react-router-dom";
 import { store } from './store'
+import axios from 'axios';
 import { Provider } from 'react-redux'
 // Call make Server
 makeServer();
+
+axios.interceptors.request.use(function (config) {
+  config.headers.authorization = localStorage.getItem('arcadedomToken');
+  return config;
+});
 
 ReactDOM.render(
   <React.StrictMode>

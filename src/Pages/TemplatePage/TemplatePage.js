@@ -6,6 +6,8 @@ import { CreatePost } from '../../Components/CreatePost/CreatePost'
 import { ModalComponent } from '../../Components/ModalComponent/ModalComponent'
 import { useSelector } from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
+import axios from 'axios'
+
 
 const TemplatePage = () => {
     const modal = useSelector((state) => state.modal.value)

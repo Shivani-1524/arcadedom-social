@@ -6,7 +6,7 @@ import { UserComment } from './Components/UserComment'
 import { PostDrawer } from './Components/PostDrawer'
 import { getPostDate } from '../../Utils/getPostDate'
 import { useSelector, useDispatch } from 'react-redux'
-import { likePost, dislikePost, bookmarkPost, removeBookmark, editPost } from '../../Features/postsSlice'
+import { likePost, dislikePost, bookmarkPost, removeBookmark, editPost, deletePost } from '../../Features/postsSlice'
 import { gifSelection } from '../../Features/postsSlice'
 import { showModal } from '../../Features/modalSlice'
 
@@ -79,7 +79,7 @@ const UserPost = ({ props }) => {
     return (
         <div className="user-post-container pos-rel">
             {toggleDrawer &&
-                <div><PostDrawer enableEditPost={() => setToggleEditPost(true)} hideDrawer={() => setToggleDrawer(false)} /></div>
+                <div><PostDrawer enableEditPost={() => setToggleEditPost(true)} deletePost={() => dispatch(deletePost(_id))} hideDrawer={() => setToggleDrawer(false)} /></div>
             }
             <div className='creator-row flex-row'>
                 <ProfileThumbnail username={firstName + lastName} />

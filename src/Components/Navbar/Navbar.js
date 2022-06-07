@@ -27,7 +27,7 @@ const Navbar = () => {
                 <NavLink to="/explore" className={({ isActive }) => activeStyle(isActive)}>
                     <FontAwesomeIcon icon={faCompass} className="btn icon-btn hide-md dark-bg-icon" />
                 </NavLink>
-                <NavLink to="/bookmark" className={({ isActive }) => activeStyle(isActive)}>
+                <NavLink to="/bookmarks" className={({ isActive }) => activeStyle(isActive)}>
                     <FontAwesomeIcon icon={faBookmark} className="btn icon-btn hide-md dark-bg-icon" />
                 </NavLink>
                 <NavLink to="/profile" className={({ isActive }) => activeStyle(isActive)}>

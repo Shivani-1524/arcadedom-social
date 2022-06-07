@@ -4,7 +4,7 @@ import { useSelector, useDispatch } from 'react-redux'
 import { getPosts } from '../../Features/postsSlice'
 
 const ExplorePage = () => {
-    const posts = useSelector((state) => state.posts.posts)
+    const { posts, postStatus } = useSelector((state) => state.posts)
     const dispatch = useDispatch()
     useEffect(() => {
         dispatch(getPosts())
@@ -12,7 +12,9 @@ const ExplorePage = () => {
     return (
         <div className='explore-container'>
             <div className="mg-t-40 flex-col">
-                {posts.map(post => <UserPost />)}
+                {postStatus === 'success' ? posts.map((post) =>
+                    <UserPost props={post} key={post._id} />
+                ) : <p>Loading Posts...</p>}
             </div>
         </div>
     )

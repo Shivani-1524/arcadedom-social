@@ -5,4 +5,6 @@ import { ExplorePage } from './ExplorePage/ExplorePage'
 import { LoginPage } from './AuthPages/LoginPage'
 import { LogoutPage } from './AuthPages/LogoutPage'
 import { SignupPage } from './AuthPages/SignupPage'
-export { HomePage, TemplatePage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage }
+import { BookmarkPage } from './BookmarkPage/BookmarkPage'
+
+export { HomePage, TemplatePage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, BookmarkPage }

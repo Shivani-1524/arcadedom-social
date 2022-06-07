@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, TemplatePage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, } from "./Pages/index"
+import { HomePage, TemplatePage, BookmarkPage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, } from "./Pages/index"
 
 function App() {
   return (
@@ -13,6 +13,7 @@ function App() {
           <Route path="/" element={<HomePage />} />
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/bookmarks" element={<BookmarkPage />} />
         </Route>
       </Routes>
     </div>

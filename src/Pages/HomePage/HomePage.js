@@ -11,9 +11,7 @@ const HomePage = () => {
 
     if (sortedBy === 'oldest') {
         dispatch(sortPosts('oldest'))
-    } else if (sortedBy === 'trending') {
-        dispatch(sortPosts('trending'))
-    } else {
+    } else if (sortedBy === 'newest') {
         dispatch(sortPosts('newest'))
     }
 

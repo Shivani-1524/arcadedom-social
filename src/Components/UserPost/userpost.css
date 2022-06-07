@@ -99,3 +99,42 @@
 .postdrawer-wrapper.flex-col{
     gap: 0;
 }
+
+.img-size{
+    width: 80%;
+    height: 300px;
+    margin: auto;
+}
+.edit-post-txtarea{
+    width: 95%;
+    margin: 20px auto 15px;
+    display: block;
+    min-height: 8rem;
+    height: max-content;
+    background-color: var(--dark-bg);
+    color: var(--white);
+    padding: 10px;
+    border-radius: 3px;
+}
+.edit-post-txtarea:focus{
+    border: 2px solid var(--violet-color);
+}
+.edit-post-action{
+    margin: 0 20px ;
+    /* font-size: ; */
+}
+.btn.primary-outlined-btn{
+    color: var(--red-color);
+    border: transparent;
+}
+.btn.primary-outlined-btn:hover{
+    background-color: var(--primary-color);
+}
+
+.edit-img-preview{
+    height: 350px;
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+}

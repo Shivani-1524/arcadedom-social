@@ -1,3 +1,11 @@
+textarea{
+    resize: vertical;
+}
+
+.post-container{
+    background-color: var(--dark-bg);
+}
+
 .post-input{
     background-color: var(--dark-bg);
     margin: auto;
@@ -14,4 +22,19 @@
     padding-left: 30px;
     font-size: 1.3rem;
     background-color: var(--dark-bg);
+}
+
+
+.img-preview{
+    height: 350px;
+    width: 90%;
+    margin: auto;
+    display: block;
+    margin-bottom: 20px;
+}
+.close-icon-img{
+    top: 15px;
+    right: 50px;
+    font-size: 1.9rem;
+    color: var(--red-color);
 }

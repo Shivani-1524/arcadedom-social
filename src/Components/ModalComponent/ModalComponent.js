@@ -5,7 +5,6 @@ import { useDispatch } from 'react-redux';
 import { hideModal } from '../../Features/modalSlice';
 
 const ModalComponent = (props) => {
-    console.log(props.type)
     const dispatch = useDispatch()
     const handleHideModal = () => {
         props.type === 'gifpick' ? props.hideGifToggle() : dispatch(hideModal())

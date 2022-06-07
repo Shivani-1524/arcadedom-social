@@ -55,12 +55,10 @@ const UserPost = ({ props }) => {
             const formData = new FormData()
             editPostContent.editPostMedia ? formData.append("file", editPostContent.editPostMedia) : formData.append("file", editPostContent.initPostMedia)
             formData.append("upload_preset", cloudinaryPreset)
-            console.log("Form Data: ", ...formData);
             fetch('https://api.cloudinary.com/v1_1/ds9sho1ch/image/upload',
                 { method: "POST", body: formData })
                 .then((res) => res.json())
                 .then((json) => {
-                    console.log('data', json)
                     dispatch(editPost({ postData: { content: editPostContent.content, postImage: json.url }, postId: _id }))
                     setToggleEditPost(false)
                     setEditPostContent('')
@@ -73,8 +71,6 @@ const UserPost = ({ props }) => {
             dispatch(gifSelection(''))
         }
     }
-
-    console.log('EDIT POST CONTENT:', editPostContent)
 
     return (
         <div className="user-post-container pos-rel">
@@ -110,7 +106,6 @@ const UserPost = ({ props }) => {
                             </label>
                             <input value="" id="upload-edit-img" className='visually-hidden' type="file"
                                 onChange={(e) => {
-                                    console.log(e.target.files[0])
                                     setEditPostContent(prev => ({ ...prev, editPostMedia: e.target.files[0], initPostMedia: null }))
                                     dispatch(gifSelection(''))
                                 }} accept="image/*" />

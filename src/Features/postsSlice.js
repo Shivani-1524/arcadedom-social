@@ -18,10 +18,8 @@ export const getUserPosts = createAsyncThunk(`/${namespace}/getPosts`, async (us
     return data.posts
 })
 export const createPost = createAsyncThunk(`/${namespace}/getPosts`, async ({ postData }, { rejectWithValue }) => {
-    console.log(postData);
     try {
         const { data } = await axios.post("/api/posts", { postData });
-        console.log(data.posts);
         return data.posts;
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -46,7 +44,6 @@ export const editPost = createAsyncThunk(`/${namespace}/editPost`, async ({ post
 export const likePost = createAsyncThunk(`/${namespace}/likePost`, async (postId, { rejectWithValue }) => {
     try {
         const { data } = await axios.post(`/api/posts/like/${postId}`)
-        console.log("like data", data)
         return data.posts
     } catch (err) {
         return rejectWithValue(err.response.data)
@@ -80,9 +77,13 @@ export const removeBookmark = createAsyncThunk(`/${namespace}/removeBookmark`, a
         return rejectWithValue(err.response.data);
     }
 })
-export const getAllBookmarks = createAsyncThunk(`/${namespace}/getBookmarks`, async () => {
-    const { data } = await axios.get(`/api/users/bookmark`)
-    return data.bookmarks
+export const getAllBookmarks = createAsyncThunk(`/${namespace}/getBookmarks`, async (_, { rejectWithValue }) => {
+    try {
+        const { data } = await axios.get(`/api/users/bookmark`)
+        return data.bookmarks
+    } catch (err) {
+        return rejectWithValue(err.response.data);
+    }
 })
 
 
@@ -150,8 +151,9 @@ export const postsSlice = createSlice({
             state.posts = payload
             state.postStatus = 'success'
         },
-        [getPosts.rejected]: (state) => {
+        [getPosts.rejected]: (state, { payload }) => {
             state.postStatus = 'failed'
+            console.log(payload)
         },
 
         [createPost.pending]: (state) => {
@@ -196,12 +198,12 @@ export const postsSlice = createSlice({
             likeStatus.loadId = meta.arg;
         },
         [likePost.fulfilled]: (state, { payload }) => {
-            console.log("LIKE FULFILLED")
             state.posts = payload
             state.likeStatus.status = 'success';
         },
-        [likePost.rejected]: ({ likeStatus }) => {
+        [likePost.rejected]: ({ likeStatus }, { payload }) => {
             likeStatus.status = 'failed';
+            console.log(payload)
         },
 
 
@@ -213,8 +215,9 @@ export const postsSlice = createSlice({
             state.posts = payload
             state.likeStatus.status = 'success';
         },
-        [dislikePost.rejected]: ({ likeStatus }) => {
+        [dislikePost.rejected]: ({ likeStatus }, { payload }) => {
             likeStatus.status = 'failed';
+            console.log(payload)
         },
 
 
@@ -223,12 +226,12 @@ export const postsSlice = createSlice({
             bookmarkStatus.loadId = meta.arg;
         },
         [removeBookmark.fulfilled]: (state, { payload }) => {
-            // state.posts = payload;
-            state.bookmarks = payload.bookmarks.reverse();
+            state.bookmarks = payload.bookmarks;
             state.bookmarkStatus.status = 'success';
         },
         [removeBookmark.rejected]: (state, { payload }) => {
             state.bookmarkStatus.status = 'failed'
+            console.log(payload)
         },
 
 
@@ -237,23 +240,25 @@ export const postsSlice = createSlice({
             bookmarkStatus.loadId = meta.arg;
         },
         [bookmarkPost.fulfilled]: (state, { payload }) => {
-            state.bookmarks = payload.bookmarks.reverse();
+            state.bookmarks = payload.bookmarks;
             state.bookmarkStatus.status = 'success';
         },
         [bookmarkPost.rejected]: ({ bookmarkStatus }, { payload }) => {
             bookmarkStatus.status = 'failed'
+            console.log(payload)
         },
 
 
         [getAllBookmarks.pending]: (state, action) => {
-            state.status = 'loading'
+            state.postStatus = 'loading'
         },
         [getAllBookmarks.fulfilled]: (state, { payload }) => {
-            state.posts = payload.reverse()
-            state.status = 'success'
+            state.bookmarks = payload
+            state.postStatus = 'success'
         },
         [getAllBookmarks.rejected]: (state, { payload }) => {
-            state.status = 'failed'
+            state.postStatus = 'failed'
+            console.log(payload)
         },
     }
 })

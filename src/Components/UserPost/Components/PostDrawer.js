@@ -3,7 +3,6 @@ import { FontAwesomeIcon, faEdit, faTrash } from '../../../Assets/icons/icons'
 import { useOutsideClick } from '../../../Utils/useOutsideClick'
 
 const PostDrawer = ({ hideDrawer, enableEditPost, deletePost }) => {
-    console.log(enableEditPost)
     const wrapperRef = useRef(null);
     useOutsideClick(wrapperRef, hideDrawer)
     return (

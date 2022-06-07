@@ -11,7 +11,6 @@ const GiphyPicker = ({ selectGif, type }) => {
     const gifLimit = 6;
     const trendUrl = `https://api.giphy.com/v1/gifs/trending?api_key=${gifApiKey}&limit=${gifLimit}`;
     const [gifList, setGifList] = useState([]);
-    console.log(type)
     const getSearchGifs = (e) => {
         const searchString = e.target.value
         if (e.target.value == '') {
@@ -28,14 +27,12 @@ const GiphyPicker = ({ selectGif, type }) => {
                     console.error(err)
                 })
         }
-        console.log(gifList)
     }
 
     const getTrendingGifs = () => {
         fetch(trendUrl)
             .then((res) => res.json())
             .then(({ data }) => {
-                console.log(data)
                 setGifList(data);
             })
             .catch((err) => {

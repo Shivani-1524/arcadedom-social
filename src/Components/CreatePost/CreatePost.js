@@ -24,17 +24,14 @@ const CreatePost = () => {
     const uploadPost = (e) => {
         e.preventDefault();
         if (postContent.postMedia !== '') {
-            console.log("IM IN")
             const cloudinaryPreset = process.env.REACT_APP_CLOUDINARY_KEY;
             const formData = new FormData()
             formData.append("file", postContent.postMedia)
             formData.append("upload_preset", cloudinaryPreset)
-            console.log("Form Data: ", ...formData);
             fetch('https://api.cloudinary.com/v1_1/ds9sho1ch/image/upload',
                 { method: "POST", body: formData })
                 .then((res) => res.json())
                 .then((json) => {
-                    console.log('data', json)
                     dispatch(createPost({ postData: { content: postContent.content, postImage: json.url } }))
                     setPostDisabled(true)
                     setPostContent({ content: '', postMedia: '' })
@@ -47,7 +44,6 @@ const CreatePost = () => {
             setGifSelected(null)
         }
     }
-    console.log("POST CONTENT", postContent)
     return (
         <form>
             <div className="post-container">
@@ -75,7 +71,6 @@ const CreatePost = () => {
                             {/* value="" forces file to change everytime */}
                             <input value="" className='visually-hidden' id="upload-img" type="file"
                                 onChange={(e) => {
-                                    console.log(e.target.files[0])
                                     setPostDisabled(false)
                                     setPostContent(prev => ({ ...prev, postMedia: e.target.files[0] }))
                                     setGifSelected(null)

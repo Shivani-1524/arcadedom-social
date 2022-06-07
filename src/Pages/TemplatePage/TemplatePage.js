@@ -3,6 +3,7 @@ import { Outlet } from 'react-router-dom'
 import { SideSection, Navbar } from "../../Components/index"
 import "./templatepage.css"
 import { CreatePost } from '../../Components/CreatePost/CreatePost'
+import { GiphyPicker } from '../../Components/CreatePost/GiphyPicker/GiphyPicker'
 import { ModalComponent } from '../../Components/ModalComponent/ModalComponent'
 import { useSelector } from 'react-redux'
 import { Navigate, useLocation } from 'react-router-dom'
@@ -19,6 +20,9 @@ const TemplatePage = () => {
             <SideSection />
             {modal.display && modal.type === 'createpost' && <ModalComponent>
                 <CreatePost />
+            </ModalComponent>}
+            {modal.display && modal.type === 'selectgif' && <ModalComponent>
+                <GiphyPicker type="editPost" />
             </ModalComponent>}
             <div className="outlet-container">
                 <Outlet />

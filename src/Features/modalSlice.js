@@ -9,7 +9,7 @@ export const modalSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         showModal: (state, action) => {
-            state.value.type = action.payload;
+            state.value.type = action.payload.type;
             state.value.display = true;
         },
         hideModal: (state) => {

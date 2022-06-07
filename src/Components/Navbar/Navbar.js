@@ -20,7 +20,7 @@ const Navbar = () => {
             </div>
             <div className="nav-space"></div>
             <div className="nav-icon-items">
-                <FontAwesomeIcon onClick={() => dispatch(showModal('createpost'))} icon={faPlus} className="btn icon-btn hide-md dark-bg-icon" />
+                <FontAwesomeIcon onClick={() => dispatch(showModal({ type: 'createpost' }))} icon={faPlus} className="btn icon-btn hide-md dark-bg-icon" />
                 <NavLink to="/" className={({ isActive }) => activeStyle(isActive)}>
                     <FontAwesomeIcon icon={faHouseChimneyCrack} className="btn icon-btn hide-md dark-bg-icon" />
                 </NavLink>

@@ -2,7 +2,6 @@ import React from 'react'
 import { useLocation } from 'react-router-dom';
 import "./sidesection.css";
 import { FontAwesomeIcon, faSearch } from '../../Assets/icons/icons';
-import dummyface1 from '../../Assets/images/dummyface1.jpg'
 import { useDispatch } from 'react-redux';
 import { sortPosts } from '../../Features/postsSlice';
 import { ProfileLargeThubmnail } from '../ProfileThumbnail/ProfileLargeThubmnail';

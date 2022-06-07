@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect } from 'react'
 import './homepage.css'
 import { UserPost } from '../../Components/UserPost/UserPost'
 import { useSelector, useDispatch } from 'react-redux'
@@ -9,15 +9,17 @@ const HomePage = () => {
     const { posts, postStatus, sortedBy } = useSelector((state) => state.posts)
     const dispatch = useDispatch()
 
-    if (sortedBy === 'oldest') {
-        dispatch(sortPosts('oldest'))
-    } else if (sortedBy === 'newest') {
-        dispatch(sortPosts('newest'))
-    }
-
     useEffect(() => {
         dispatch(getPosts())
     }, [])
+
+    useEffect(() => {
+        if (sortedBy === 'oldest') {
+            dispatch(sortPosts('oldest'))
+        } else if (sortedBy === 'newest') {
+            dispatch(sortPosts('newest'))
+        }
+    }, [sortedBy])
 
     return (
         <div className='homepage-container'>

@@ -27,6 +27,7 @@ const SinglePostPage = () => {
         console.log({ postId: postId, commentData: commentInput })
         dispatch(addComment({ postId: postId, commentData: commentInput }))
         setCommentInput('')
+        setDisabledComments(true)
     }
 
     useEffect(() => {

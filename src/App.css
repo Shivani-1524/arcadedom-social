@@ -42,6 +42,8 @@ a {
 }
 .icon-size-md{
   font-size: 1.6rem;
+  text-decoration: none;
+  color: var(--white);
 }
 
 .btn.cta-btn{
@@ -159,4 +161,11 @@ footer .icon-btn{
   position: absolute;
   white-space: nowrap;
   width: 1px;
+}
+
+.g-0{
+  gap: 0;
+}
+.g-10{
+  gap: 10px;
 }

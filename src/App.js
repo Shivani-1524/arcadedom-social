@@ -1,6 +1,6 @@
 import "./App.css";
 import { Routes, Route } from 'react-router-dom';
-import { HomePage, TemplatePage, BookmarkPage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, } from "./Pages/index"
+import { HomePage, TemplatePage, BookmarkPage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, SinglePostPage } from "./Pages/index"
 
 function App() {
   return (
@@ -14,6 +14,7 @@ function App() {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/explore" element={<ExplorePage />} />
           <Route path="/bookmarks" element={<BookmarkPage />} />
+          <Route path="/comments/:postId" element={<SinglePostPage />} />
         </Route>
       </Routes>
     </div>

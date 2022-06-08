@@ -25,7 +25,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "snekbabu",
-        text: "Interesting",
+        commentData: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -34,7 +34,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "Raptorbong",
-        text: "Wow!",
+        commentData: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -60,7 +60,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "Raptorbong",
-        text: "Interesting",
+        commentData: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -69,7 +69,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "pickledrick",
-        text: "Wow!",
+        commentData: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -95,7 +95,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "pickledrick",
-        text: "Interesting",
+        commentData: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -104,7 +104,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "snekbabu",
-        text: "Wow!",
+        commentData: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -130,7 +130,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "pickledrick",
-        text: "Interesting",
+        commentData: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -139,7 +139,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "Raptorbong",
-        text: "Wow!",
+        commentData: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -162,7 +162,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "Raptorbong",
-        text: "Interesting",
+        commentData: "Interesting",
         votes: {
           upvotedBy: [],
           downvotedBy: [],
@@ -171,7 +171,7 @@ export const posts = [
       {
         _id: uuid(),
         username: "pickledrick",
-        text: "Wow!",
+        commentData: "Wow!",
         votes: {
           upvotedBy: [],
           downvotedBy: [],

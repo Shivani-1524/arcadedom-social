@@ -23,8 +23,7 @@ const UserComment = ({ props, postId }) => {
 
     return (
         <div className="comment-wrapper flex-row">
-
-            <div className='flex-row'>
+            <div className='flex-row comment'>
                 <ProfileThumbnail username={username} />
                 {toggleEdit ?
                     <div>

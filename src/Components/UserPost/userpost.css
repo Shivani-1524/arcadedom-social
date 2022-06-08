@@ -139,7 +139,14 @@
 .btn.primary-outlined-btn.error:hover{
     background-color: var(--primary-color);
 }
-
+.comment{
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    max-width: 80%;
+}
+.comment p{
+    word-break: break-all 
+}
 .edit-img-preview{
     height: 350px;
     width: 90%;
@@ -154,7 +161,11 @@
     border: 1px solid var(--grey);
     padding: 5px 10px;
     border-radius: 3px;
+    width: 100%;
 }
 .edit-comment-input:focus{
     border: 2px solid var(--violet-color);
 }
+/* .test{
+    background-color: aqua;
+} */

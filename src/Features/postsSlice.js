@@ -88,21 +88,47 @@ export const getAllBookmarks = createAsyncThunk(`/${namespace}/getBookmarks`, as
 
 
 //comments
-export const postComment = createAsyncThunk(`/${namespace}/dislikePost`, async (postId) => {
-    const { data } = await axios.get(`/api/posts/dislike/${postId}`)
-    return data.posts
+
+// export const getComments = createAsyncThunk(`/${namespace}/addComment`, async ({ postId, commentData }, { rejectWithValue }) => {
+//     console.log("in add comm", { commentData })
+//     try {
+//         const { data } = await axios.post(`/api/comments/add/${postId}`, { commentData })
+//         console.log("COMMENTS DATA", data)
+//         return data.posts
+//     } catch (err) {
+//         return rejectWithValue(err.response.data);
+//     }
+
+// })
+export const addComment = createAsyncThunk(`/${namespace}/addComment`, async ({ postId, commentData }, { rejectWithValue }) => {
+    console.log("in add comm", { commentData })
+    try {
+        const { data } = await axios.post(`/api/comments/add/${postId}`, { commentData })
+        console.log("COMMENTS DATA", data)
+        return data.posts
+    } catch (err) {
+        return rejectWithValue(err.response.data);
+    }
+
 })
-export const getAllComments = createAsyncThunk(`/${namespace}/dislikePost`, async (postId) => {
-    const { data } = await axios.get(`/api/posts/dislike/${postId}`)
-    return data.posts
+export const editComment = createAsyncThunk(`/${namespace}/editComment`, async ({ postId, commentId, commentData }, { rejectWithValue }) => {
+    console.log("Comment data", { commentData, postId, commentId })
+    try {
+        const { data } = await axios.post(`/api/comments/edit/${postId}/${commentId}`, { commentData })
+        return data.posts
+    } catch (err) {
+        return rejectWithValue(err.response.data);
+    }
 })
-export const editComment = createAsyncThunk(`/${namespace}/dislikePost`, async (postId) => {
-    const { data } = await axios.get(`/api/posts/dislike/${postId}`)
-    return data.posts
-})
-export const deleteComment = createAsyncThunk(`/${namespace}/dislikePost`, async (postId) => {
-    const { data } = await axios.get(`/api/posts/dislike/${postId}`)
-    return data.posts
+export const deleteComment = createAsyncThunk(`/${namespace}/deleteComment`, async ({ postId, commentId }, { rejectWithValue }) => {
+    console.log("daacomms", { postId, commentId })
+    try {
+        const { data } = await axios.delete(`/api/comments/delete/${postId}/${commentId}`);
+        console.log(data)
+        return data.posts
+    } catch (err) {
+        return rejectWithValue(err.response.data);
+    }
 })
 
 
@@ -257,6 +283,44 @@ export const postsSlice = createSlice({
             state.postStatus = 'success'
         },
         [getAllBookmarks.rejected]: (state, { payload }) => {
+            state.postStatus = 'failed'
+            console.log(payload)
+        },
+
+        [addComment.pending]: (state, action) => {
+            state.postStatus = 'loading'
+        },
+        [addComment.fulfilled]: (state, { payload }) => {
+            console.log(payload)
+            state.posts = payload
+            state.postStatus = 'success'
+        },
+        [addComment.rejected]: (state, { payload }) => {
+            state.postStatus = 'failed'
+            console.log(payload)
+        },
+
+        [deleteComment.pending]: (state, action) => {
+            state.postStatus = 'loading'
+        },
+        [deleteComment.fulfilled]: (state, { payload }) => {
+            state.posts = payload
+            state.postStatus = 'success'
+        },
+        [deleteComment.rejected]: (state, { payload }) => {
+            state.postStatus = 'failed'
+            console.log(payload)
+        },
+
+        [editComment.pending]: (state, action) => {
+            state.postStatus = 'loading'
+        },
+        [editComment.fulfilled]: (state, { payload }) => {
+            console.log(payload)
+            state.posts = payload
+            state.postStatus = 'success'
+        },
+        [editComment.rejected]: (state, { payload }) => {
             state.postStatus = 'failed'
             console.log(payload)
         },

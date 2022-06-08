@@ -6,5 +6,6 @@ import { LoginPage } from './AuthPages/LoginPage'
 import { LogoutPage } from './AuthPages/LogoutPage'
 import { SignupPage } from './AuthPages/SignupPage'
 import { BookmarkPage } from './BookmarkPage/BookmarkPage'
+import { SinglePostPage } from './SinglePostPage/SinglePostPage'
 
-export { HomePage, TemplatePage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, BookmarkPage }
+export { HomePage, TemplatePage, ProfilePage, ExplorePage, SignupPage, LoginPage, LogoutPage, BookmarkPage, SinglePostPage }

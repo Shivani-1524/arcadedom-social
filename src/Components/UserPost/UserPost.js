@@ -2,20 +2,18 @@ import React, { useState, useEffect } from 'react'
 import './userpost.css'
 import { FontAwesomeIcon, faCircleXmark, faImage, faSpinner, faHeart, farHeart, faBookmark, farBookmark, faComment, faEllipsisVertical, faThumbsDown, faThumbsUp } from '../../Assets/icons/icons'
 import { ProfileThumbnail } from '../../Components'
-import { UserComment } from './Components/UserComment'
 import { PostDrawer } from './Components/PostDrawer'
 import { getPostDate } from '../../Utils/getPostDate'
 import { useSelector, useDispatch } from 'react-redux'
 import { likePost, dislikePost, bookmarkPost, removeBookmark, editPost, deletePost } from '../../Features/postsSlice'
 import { gifSelection } from '../../Features/postsSlice'
 import { showModal } from '../../Features/modalSlice'
+import { Link } from 'react-router-dom'
 
 const UserPost = ({ props }) => {
     const dispatch = useDispatch()
     const { content, likes: { likeCount, likedBy }, postImage, username, firstName, lastName, comments, createdAt, updatedAt, _id } = props
-    const [toggleComments, setToggleComments] = useState(false);
-    const [disabledComments, setDisabledComments] = useState(true);
-    const [commentInput, setCommentInput] = useState('');
+
     const [toggleDrawer, setToggleDrawer] = useState(false);
     const [toggleEditPost, setToggleEditPost] = useState(false);
     const createdDateTxt = getPostDate(createdAt)
@@ -30,12 +28,6 @@ const UserPost = ({ props }) => {
     useEffect(() => {
         setEditPostContent(initialEditState)
     }, [])
-
-    const onCommentChange = (e) => {
-        let userCommentTxt = e.target.value;
-        setCommentInput(userCommentTxt);
-        userCommentTxt.length === 0 ? setDisabledComments(true) : setDisabledComments(false);
-    }
 
     const handleLikePost = (isLiked, postId) => {
         isLiked ? dispatch(dislikePost(postId)) : dispatch(likePost(postId))
@@ -112,7 +104,7 @@ const UserPost = ({ props }) => {
                         </div>
                         <p className='pointer sm-p' onClick={() => { dispatch(showModal({ type: 'selectgif' })) }}> GIF </p>
                         <div className="space"></div>
-                        <button onClick={() => setToggleEditPost(false)} className="btn primary-outlined-btn cta-btn">Cancel</button>
+                        <button onClick={() => setToggleEditPost(false)} className="btn primary-outlined-btn error cta-btn">Cancel</button>
                         {(editPostContent.editPostMedia || editPostContent.initPostMedia || editPostContent.content || gifUrlSelected) && <button onClick={updatePost} className="btn primary-btn solid cta-btn">Save</button>}
                     </div>
 
@@ -136,23 +128,15 @@ const UserPost = ({ props }) => {
                 </div>
                 <div className='flex-row action-count'>
                     <p>{comments.length}</p>
-                    <FontAwesomeIcon onClick={() => setToggleComments(prev => !prev)} icon={faComment} className='icon-size-md pointer' />
+                    <Link to={`/comments/${_id}`}>
+                        <FontAwesomeIcon icon={faComment} className='icon-size-md pointer' />
+                    </Link>
                 </div>
                 <div className="space"></div>
                 {(bookmarkStatus.status === 'loading' && bookmarkStatus.loadId.toString() === _id.toString()) ?
                     <FontAwesomeIcon icon={faSpinner} className='icon-size-md grey-txt' /> :
                     <FontAwesomeIcon onClick={() => handleBookmarkPost(isBookmarked, _id)} icon={isBookmarked ? faBookmark : farBookmark} className='icon-size-md pointer' />}
             </div>
-            {toggleComments && <div>
-                <div className='comments-listing flex-col'>
-                    {comments.map(comment => <UserComment key={comment._id} props={comment} />)}
-                </div>
-                <div className='add-comment-container'>
-                    <label htmlFor="add-comment" className='visually-hidden'>Add a Comment</label>
-                    <input id="add-comment" type="text" onChange={onCommentChange} value={commentInput} placeholder='Add a comment' />
-                    <button disabled={disabledComments} className={'btn primary-btn cta-btn ' + (disabledComments && ' disabled')}>Post</button>
-                </div>
-            </div>}
         </div>
     )
 }

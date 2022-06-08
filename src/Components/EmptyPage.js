@@ -1,9 +1,9 @@
 import React from 'react'
 
-const EmptyPage = () => {
+const EmptyPage = ({ msg }) => {
     return (
         <div className='empty-layout center-items'>
-            <p className='rg-p'>Nothing to see here, such Empty 🤖</p>
+            {msg ? <p className='rg-p'>{msg}</p> : <p className='rg-p'>Nothing to see here, such Empty 🤖</p>}
         </div>
     )
 }

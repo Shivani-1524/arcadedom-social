@@ -1,0 +1,10 @@
+.single-pg-layout{
+    width: 100%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.comment-section{
+    background-color: var(--dark-bg);
+    width: 80%;
+}

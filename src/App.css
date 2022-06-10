@@ -74,6 +74,12 @@ a {
   height: 2.6rem;
   object-fit: contain;
 }
+.w-100{
+  width: 100%
+}
+.user-stat:hover{
+  text-decoration: underline;
+}
 
 .close-icon.white {
   color: var(--white);
@@ -168,4 +174,13 @@ footer .icon-btn{
 }
 .g-10{
   gap: 10px;
+}
+.wrap-p{
+  word-break: break-all 
+}
+.align-start-row{
+  justify-content: flex-start;
+}
+.align-right{
+  align-self: flex-end;
 }

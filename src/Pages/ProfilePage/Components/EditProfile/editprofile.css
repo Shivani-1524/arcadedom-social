@@ -1,0 +1,30 @@
+.edit-profile-wrapper{
+    width: max-content;
+    margin: auto;
+    font-size: 1.3rem;
+    /* background-color: violet; */
+    align-items: flex-start;
+    padding-bottom: 20px;
+}
+
+.profile-txt{
+    width: 18rem;
+}
+
+.profile-input{
+    align-items: flex-start;
+    gap: 6px;
+}
+.profile-input input{
+    background-color: var(--dark-bg);
+    border: 1px solid var(--white);
+    height: 2.7rem;
+    color: var(--white);
+    width: max-content;
+    min-width: 25rem;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+.profile-input input:focus{
+    border: 1px solid var(--violet-color);
+}

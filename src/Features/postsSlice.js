@@ -13,10 +13,8 @@ export const getPosts = createAsyncThunk(`/${namespace}/getPosts`, async (_, { r
         return rejectWithValue(err.response.data);
     }
 })
-export const getUserPosts = createAsyncThunk(`/${namespace}/getPosts`, async (username) => {
-    const { data } = await axios.get(`/api/posts/user/${username}`)
-    return data.posts
-})
+
+
 export const createPost = createAsyncThunk(`/${namespace}/getPosts`, async ({ postData }, { rejectWithValue }) => {
     try {
         const { data } = await axios.post("/api/posts", { postData });
@@ -64,6 +62,7 @@ export const dislikePost = createAsyncThunk(`/${namespace}/dislikePost`, async (
 export const bookmarkPost = createAsyncThunk(`/${namespace}/bookmarkPost`, async (postId, { rejectWithValue }) => {
     try {
         const { data } = await axios.post(`/api/users/bookmark/${postId}`)
+        console.log(data)
         return data
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -89,17 +88,6 @@ export const getAllBookmarks = createAsyncThunk(`/${namespace}/getBookmarks`, as
 
 //comments
 
-// export const getComments = createAsyncThunk(`/${namespace}/addComment`, async ({ postId, commentData }, { rejectWithValue }) => {
-//     console.log("in add comm", { commentData })
-//     try {
-//         const { data } = await axios.post(`/api/comments/add/${postId}`, { commentData })
-//         console.log("COMMENTS DATA", data)
-//         return data.posts
-//     } catch (err) {
-//         return rejectWithValue(err.response.data);
-//     }
-
-// })
 export const addComment = createAsyncThunk(`/${namespace}/addComment`, async ({ postId, commentData }, { rejectWithValue }) => {
     console.log("in add comm", { commentData })
     try {

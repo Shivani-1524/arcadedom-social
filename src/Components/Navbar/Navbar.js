@@ -3,12 +3,14 @@ import { NavLink, Link } from "react-router-dom"
 import NavLogo from '../../Assets/images/nav-logo.png'
 import './navbar.css'
 import { faCompass, faBookmark, faPlus, FontAwesomeIcon, faRightFromBracket, faHouseChimneyCrack, faBars, faCircleUser } from '../../Assets/icons/icons'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { showModal } from '../../Features/modalSlice';
 import { userLogout } from '../../Features/authSlice';
 
 const Navbar = () => {
     const dispatch = useDispatch()
+    const { currentUser } = useSelector(state => state.auth)
+    const { username } = JSON.parse(currentUser)
     const activeStyle = (isActive) => (isActive ? 'navicon-link active-link' : 'navicon-link')
     return (
         <nav className="navbar" >
@@ -30,7 +32,7 @@ const Navbar = () => {
                 <NavLink to="/bookmarks" className={({ isActive }) => activeStyle(isActive)}>
                     <FontAwesomeIcon icon={faBookmark} className="btn icon-btn hide-md dark-bg-icon" />
                 </NavLink>
-                <NavLink to="/profile" className={({ isActive }) => activeStyle(isActive)}>
+                <NavLink to={`/profile/${username}`} className={({ isActive }) => activeStyle(isActive)}>
                     <FontAwesomeIcon icon={faCircleUser} className="btn icon-btn hide-md dark-bg-icon" />
                 </NavLink>
                 <NavLink to="/logout" className={({ isActive }) => activeStyle(isActive)}>

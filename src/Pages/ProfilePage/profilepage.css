@@ -1,0 +1,41 @@
+
+.profile-pg-layout{
+    /* background-color: aqua; */
+    width: 80%;
+    margin: auto;
+    margin-top: 40px;
+}
+
+.profile-img-wrapper{
+    align-self: center;
+}
+
+.edit-profile-btn{
+    top: 6rem;
+    right: 50px;
+    color: var(--white);
+}
+
+.profile-desc{
+    justify-content: flex-start;
+    align-items: flex-start;
+    padding: 10px;
+}
+.profile-tag{
+    align-items: baseline;
+}
+.profile-desc-txt{
+    max-width: 80%;
+    gap: 8px;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    height: auto;
+}
+.bio-link{
+    color: var(--white);
+    font-size: 14px;
+}
+
+.user-stats{
+    font-size: 1.15rem;
+}

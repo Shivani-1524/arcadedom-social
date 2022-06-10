@@ -7,8 +7,9 @@ import { hideModal } from '../../Features/modalSlice';
 const ModalComponent = (props) => {
     const dispatch = useDispatch()
     const handleHideModal = () => {
-        props.type === 'gifpick' ? props.hideGifToggle() : dispatch(hideModal())
+        props.type ? props.hideModalToggle() : dispatch(hideModal())
     }
+
     return (
         <div className='modal-bg center-items'>
             <div className='modal-component-wrapper'>

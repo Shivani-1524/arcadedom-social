@@ -84,7 +84,7 @@ const CreatePost = () => {
                     </div>
                 </div>
             </div>
-            {toggleGifPicker && <ModalComponent type="gifpick" hideGifToggle={() => setToggleGifPicker(false)}>
+            {toggleGifPicker && <ModalComponent type="gifpick" hideModalToggle={() => setToggleGifPicker(false)}>
                 <GiphyPicker selectGif={(url) => {
                     setPostDisabled(false)
                     setPostContent(prev => ({ ...prev, postMedia: '' }))

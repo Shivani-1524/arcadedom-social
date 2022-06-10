@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom'
 
 const UserPost = ({ props }) => {
     const dispatch = useDispatch()
-    const { content, likes: { likeCount, likedBy }, postImage, username, firstName, lastName, comments, createdAt, updatedAt, _id } = props
+    const { content, likes: { likeCount, likedBy }, postImage, username, comments, createdAt, _id } = props
 
     const [toggleDrawer, setToggleDrawer] = useState(false);
     const [toggleEditPost, setToggleEditPost] = useState(false);
@@ -33,6 +33,7 @@ const UserPost = ({ props }) => {
         isLiked ? dispatch(dislikePost(postId)) : dispatch(likePost(postId))
     }
     const handleBookmarkPost = (isBookmarked, postId) => {
+        console.log(isBookmarked)
         isBookmarked ? dispatch(removeBookmark(_id)) : dispatch(bookmarkPost(_id))
     }
 
@@ -70,8 +71,7 @@ const UserPost = ({ props }) => {
                 <div><PostDrawer enableEditPost={() => setToggleEditPost(true)} deletePost={() => dispatch(deletePost(_id))} hideDrawer={() => setToggleDrawer(false)} /></div>
             }
             <div className='creator-row flex-row'>
-                <ProfileThumbnail username={firstName + lastName} />
-                <p className='light-grey-txt'>@{username} .</p>
+                <ProfileThumbnail username={username} />
                 <p className='light-grey-txt'>{createdDateTxt}</p>
                 <div className='space'></div>
                 {username === currentUsername && <FontAwesomeIcon onClick={() => setToggleDrawer(prev => !prev)} className='icon-size-rg ellipsis-icon' icon={faEllipsisVertical} />}
@@ -121,7 +121,9 @@ const UserPost = ({ props }) => {
             }
             <div className='post-actions flex-row'>
                 <div className='flex-row action-count'>
-                    <p className='pointer'>{likeCount}</p>
+                    <p onClick={() => {
+                        dispatch(showModal({ type: 'userlist', list: likedBy }))
+                    }} className='pointer user-stat'>{likeCount}</p>
                     {(likeStatus.status === 'loading' && likeStatus.loadId === _id.toString()) ?
                         <FontAwesomeIcon icon={faSpinner} className='icon-size-md grey-txt' /> :
                         <FontAwesomeIcon onClick={async () => handleLikePost(isLiked, _id)} icon={isLiked ? faHeart : farHeart} className='icon-size-md pointer' />}

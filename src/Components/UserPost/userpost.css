@@ -144,9 +144,7 @@
     flex-wrap: wrap;
     max-width: 80%;
 }
-.comment p{
-    word-break: break-all 
-}
+
 .edit-img-preview{
     height: 350px;
     width: 90%;

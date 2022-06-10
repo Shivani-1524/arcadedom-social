@@ -1,15 +1,17 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, current } from "@reduxjs/toolkit";
 
 
 const namespace = 'modal'
-const initialStateValue = { display: false, type: 'default' }
+const initialStateValue = { display: false, type: 'default', userList: null }
 
 export const modalSlice = createSlice({
     name: namespace,
     initialState: { value: initialStateValue },
     reducers: {
         showModal: (state, action) => {
+            console.log(action.payload)
             state.value.type = action.payload.type;
+            state.value.userList = action.payload.list;
             state.value.display = true;
         },
         hideModal: (state) => {

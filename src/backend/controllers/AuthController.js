@@ -15,7 +15,9 @@ const sign = require("jwt-encode");
  * */
 
 export const signupHandler = function (schema, request) {
-  const { username, password, ...rest } = JSON.parse(request.requestBody);
+  const { username, password, firstName, lastName, email } = JSON.parse(
+    request.requestBody
+  );
   try {
     // check if username already exists
     const foundUser = schema.users.findBy({ username: username });
@@ -36,12 +38,18 @@ export const signupHandler = function (schema, request) {
       updatedAt: formatDate(),
       username,
       password,
-      ...rest,
+      firstName,
+      lastName,
+      email,
       followers: [],
       following: [],
       bookmarks: [],
+      bioLink: "",
+      bio: "",
+      avatarURL: "",
     };
     const createdUser = schema.users.create(newUser);
+
     const encodedToken = sign(
       { _id, username },
       process.env.REACT_APP_JWT_SECRET
@@ -104,4 +112,4 @@ export const loginHandler = function (schema, request) {
       }
     );
   }
-};
+}

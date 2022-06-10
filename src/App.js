@@ -11,7 +11,7 @@ function App() {
         <Route path="/logout" element={<LogoutPage />} />
         <Route path="/" element={<TemplatePage />}>
           <Route path="/" element={<HomePage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/profile/:username" element={<ProfilePage />} />
           <Route path="/explore" element={<ExplorePage />} />
           <Route path="/bookmarks" element={<BookmarkPage />} />
           <Route path="/comments/:postId" element={<SinglePostPage />} />

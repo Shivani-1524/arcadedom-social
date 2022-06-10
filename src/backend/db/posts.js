@@ -12,8 +12,11 @@ export const posts = [
     content:
       "Tournament for who's the biggest whale in Genshin starts tomorrow 12:00 GMT+. Time to go brokkk. ",
     likes: {
-      likeCount: 6,
-      likedBy: [],
+      likeCount: 2,
+      likedBy: [
+        { username: "snekbabu" },
+        { username: "Raptorbong" },
+      ],
       dislikedBy: [],
     },
     username: "pickledrick",
@@ -47,8 +50,13 @@ export const posts = [
     content:
       "Tournament for who's the biggest whale in Genshin starts tomorrow 12:00 GMT+. Time to go brokkk. ",
     likes: {
-      likeCount: 10,
-      likedBy: [],
+      likeCount: 4,
+      likedBy: [
+        { username: "snekbabu" },
+        { username: "Raptorbong" },
+        { username: "zhonglee" },
+        { username: "trex_in_a_tutu" }
+      ],
       dislikedBy: [],
     },
     firstName: "Toxic",
@@ -82,8 +90,12 @@ export const posts = [
     content:
       "Tournament for who's the biggest whale in Genshin starts tomorrow 12:00 GMT+. Time to go brokkk. ",
     likes: {
-      likeCount: 5,
-      likedBy: [],
+      likeCount: 3,
+      likedBy: [
+        { username: "snekbabu" },
+        { username: "Raptorbong" },
+        { username: "trex_in_a_tutu" }
+      ],
       dislikedBy: [],
     },
     firstName: "Tryper",
@@ -117,8 +129,13 @@ export const posts = [
     content:
       "Tournament for who's the biggest whale in Genshin starts tomorrow 12:00 GMT+. Time to go brokkk. ",
     likes: {
-      likeCount: 5,
-      likedBy: [],
+      likeCount: 4,
+      likedBy: [
+        { username: "snekbabu" },
+        { username: "Raptorbong" },
+        { username: "zhonglee" },
+        { username: "trex_in_a_tutu" }
+      ],
       dislikedBy: [],
     },
     firstName: "T-Rex",
@@ -152,8 +169,11 @@ export const posts = [
     content:
       "Say no to cat memes and anything cat. just nope <3.",
     likes: {
-      likeCount: 11,
-      likedBy: [{ username: 'dawdwda' }, { username: 'grgdggr' }],
+      likeCount: 3,
+      likedBy: [
+        { username: "Raptorbong" },
+        { username: "zhonglee" },
+        { username: "trex_in_a_tutu" }],
     },
     firstName: "T-Rex",
     lastName: "Tutu",

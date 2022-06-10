@@ -71,15 +71,6 @@ const initialStateValue = {
 export const usersSlice = createSlice({
     name: namespace,
     initialState: { value: initialStateValue },
-    // reducers: {
-    //     showModal: (state, action) => {
-    //         state.value.type = action.payload.type;
-    //         state.value.display = true;
-    //     },
-    //     hideModal: (state) => {
-    //         state.value = initialStateValue
-    //     }
-    // },
     extraReducers: {
         [getUserPosts.pending]: (state) => {
             state.value.status = 'loading'

@@ -104,7 +104,7 @@
 
 .img-size{
     width: 80%;
-    height: 300px;
+    height: 23rem;
     margin: auto;
 }
 .edit-post-txtarea{
@@ -123,7 +123,6 @@
 }
 .edit-post-action{
     margin: 0 20px ;
-    /* font-size: ; */
 }
 .btn.primary-outlined-btn.error{
     color: var(--red-color);
@@ -146,7 +145,7 @@
 }
 
 .edit-img-preview{
-    height: 350px;
+    height: 26.9rem;
     width: 90%;
     margin: auto;
     display: block;
@@ -164,6 +163,3 @@
 .edit-comment-input:focus{
     border: 2px solid var(--violet-color);
 }
-/* .test{
-    background-color: aqua;
-} */

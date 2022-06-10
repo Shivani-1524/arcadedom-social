@@ -1,9 +1,8 @@
 
 .profile-pg-layout{
-    /* background-color: aqua; */
     width: 80%;
     margin: auto;
-    margin-top: 40px;
+    margin-top: 3rem;
 }
 
 .profile-img-wrapper{
@@ -12,7 +11,7 @@
 
 .edit-profile-btn{
     top: 6rem;
-    right: 50px;
+    right: 3.8rem;
     color: var(--white);
 }
 

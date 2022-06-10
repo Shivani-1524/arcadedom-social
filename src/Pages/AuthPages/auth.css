@@ -1,7 +1,7 @@
 .auth-container {
     width: 100vw;
     min-height: max-content;
-    padding: 50px;
+    padding: 3.8rem;
     display: flex;
     flex-direction: column;
     justify-content: center;

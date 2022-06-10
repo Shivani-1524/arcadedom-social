@@ -88,10 +88,8 @@ export const getAllBookmarks = createAsyncThunk(`/${namespace}/getBookmarks`, as
 //comments
 
 export const addComment = createAsyncThunk(`/${namespace}/addComment`, async ({ postId, commentData }, { rejectWithValue }) => {
-    console.log("in add comm", { commentData })
     try {
         const { data } = await axios.post(`/api/comments/add/${postId}`, { commentData })
-        console.log("COMMENTS DATA", data)
         return data.posts
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -99,7 +97,6 @@ export const addComment = createAsyncThunk(`/${namespace}/addComment`, async ({ 
 
 })
 export const editComment = createAsyncThunk(`/${namespace}/editComment`, async ({ postId, commentId, commentData }, { rejectWithValue }) => {
-    console.log("Comment data", { commentData, postId, commentId })
     try {
         const { data } = await axios.post(`/api/comments/edit/${postId}/${commentId}`, { commentData })
         return data.posts
@@ -108,10 +105,8 @@ export const editComment = createAsyncThunk(`/${namespace}/editComment`, async (
     }
 })
 export const deleteComment = createAsyncThunk(`/${namespace}/deleteComment`, async ({ postId, commentId }, { rejectWithValue }) => {
-    console.log("daacomms", { postId, commentId })
     try {
         const { data } = await axios.delete(`/api/comments/delete/${postId}/${commentId}`);
-        console.log(data)
         return data.posts
     } catch (err) {
         return rejectWithValue(err.response.data);

@@ -18,15 +18,15 @@ textarea{
 }
 .post-media-row.flex-row{
     justify-content: space-between;
-    padding: 10px 30px;
-    padding-left: 30px;
+    padding: 10px 2.3rem;
+    padding-left: 2.3rem;
     font-size: 1.3rem;
     background-color: var(--dark-bg);
 }
 
 
 .img-preview{
-    height: 350px;
+    height: 26.9rem;
     width: 90%;
     margin: auto;
     display: block;
@@ -34,7 +34,7 @@ textarea{
 }
 .close-icon-img{
     top: 15px;
-    right: 50px;
+    right: 2.8rem;
     font-size: 1.9rem;
     color: var(--red-color);
 }

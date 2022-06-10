@@ -29,7 +29,7 @@ const UserComment = ({ props, postId }) => {
                     <div>
                         <label className="visually-hidden" htmlFor="edit-comment-text">Edit Comment</label>
                         <input defaultValue={editedCommentTxt} onChange={(e) => setEditedCommentTxt(e.target.value)} type="text" id="edit-comment-text" className='edit-comment-input' />
-                    </div> : <p>{commentData}</p>}
+                    </div> : <p className='wrap-p'>{commentData}</p>}
             </div>
             {(currentUsername === username) && !toggleEdit && <div className='flex-row'>
                 <FontAwesomeIcon onClick={deleteUserComment} icon={faTrash} className="orange-txt pointer" />

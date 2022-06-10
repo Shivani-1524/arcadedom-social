@@ -1,16 +1,25 @@
 import React from 'react'
 import dummyface1 from '../../Assets/images/dummyface1.jpg'
 import './profilethumbnail.css'
+import { Link, useNavigate } from 'react-router-dom'
+import { hideModal } from '../../Features/modalSlice'
+import { useDispatch } from 'react-redux'
 
-const ProfileLargeThubmnail = () => {
+const ProfileLargeThubmnail = ({ props }) => {
+    const dispatch = useDispatch()
+    const { firstName, lastName, username, avatarURL } = props
+    const navigate = useNavigate()
     return (
-        <div className='listed-user-profile'>
+        <div onClick={() => {
+            navigate(`profile/${username}`)
+            dispatch(hideModal())
+        }} className='listed-user-profile'>
             <div className="avatar rg">
-                <img className="avatar-img" src={dummyface1} alt="profile" />
+                <img className="avatar-img" src={avatarURL ? avatarURL : dummyface1} alt="profile" />
             </div>
             <div>
-                <p>The Rick Ruler</p>
-                <p>@evilmorty</p>
+                <p>{firstName + lastName}</p>
+                <p>@{username}</p>
             </div>
         </div>
     )

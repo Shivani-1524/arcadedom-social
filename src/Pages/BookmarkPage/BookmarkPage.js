@@ -13,7 +13,7 @@ const BookmarkPage = () => {
 
     return (
         <div>
-            {bookmarks.length > 0 ? <div className="mg-t-40 flex-col">
+            {postStatus === 'success' && bookmarks.length > 0 ? <div className="mg-t-40 flex-col">
                 {postStatus === 'success' ? bookmarks.map((post) =>
                     <UserPost props={post} key={post._id} />
                 ) : <p>Loading Posts...</p>}

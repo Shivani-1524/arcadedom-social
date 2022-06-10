@@ -111,12 +111,12 @@ export const getBookmarkPostsHandler = function (schema, request) {
 
 export const bookmarkPostHandler = function (schema, request) {
   const { postId } = request.params;
-  console.log("IM IN BMBM", postId)
+
   const post = schema.posts.findBy({ _id: postId }).attrs;
   const user = requiresAuth.call(this, request);
   try {
     if (!user) {
-      console.log("user not found")
+
       return new Response(
         404,
         {},
@@ -131,14 +131,14 @@ export const bookmarkPostHandler = function (schema, request) {
       (currPost) => currPost._id === postId
     );
     if (isBookmarked) {
-      console.log("user not found2")
+
       return new Response(
         400,
         {},
         { errors: ["This Post is already bookmarked"] }
       );
     }
-    console.log("user.bookmarks")
+
     user.bookmarks.push(JSON.parse(JSON.stringify(post)));;
     this.db.users.update(
       { _id: user._id },
@@ -146,7 +146,7 @@ export const bookmarkPostHandler = function (schema, request) {
     );
     return new Response(200, {}, { bookmarks: user.bookmarks });
   } catch (error) {
-    console.log("user not found3")
+
     return new Response(
       500,
       {},
@@ -269,7 +269,7 @@ export const followUserHandler = function (schema, request) {
  * */
 
 export const unfollowUserHandler = function (schema, request) {
-  console.log("IM IN UNFOLLOW")
+
   const user = requiresAuth.call(this, request);
   const { followUserId } = request.params;
   const followUser = this.db.users.findBy({ _id: followUserId });

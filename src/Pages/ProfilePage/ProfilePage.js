@@ -18,14 +18,14 @@ const ProfilePage = () => {
     const params = useParams()
     const { username } = params
     const [toggleEditProfile, setToggleEditProfile] = useState(false)
-    console.log("wtf", { status, userPosts, userData })
+
     useEffect(() => {
         dispatch(getUserPosts({ username }))
         dispatch(getUserData({ username }))
     }, [username])
     const isFollower = userData && userData.followers.some(user => user.username === currentUsername)
     const handleFollowerClick = () => {
-        console.log("ID", userData._id)
+
         isFollower ? dispatch(unfollowUser({ followUserId: userData._id })) : dispatch(followUser({ followUserId: userData._id }))
     }
 

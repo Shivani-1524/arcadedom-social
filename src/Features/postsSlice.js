@@ -62,7 +62,6 @@ export const dislikePost = createAsyncThunk(`/${namespace}/dislikePost`, async (
 export const bookmarkPost = createAsyncThunk(`/${namespace}/bookmarkPost`, async (postId, { rejectWithValue }) => {
     try {
         const { data } = await axios.post(`/api/users/bookmark/${postId}`)
-        console.log(data)
         return data
     } catch (err) {
         return rejectWithValue(err.response.data);

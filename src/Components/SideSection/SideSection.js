@@ -25,7 +25,7 @@ const SideSection = () => {
 
     const getSuggestedUsers = (userData) => {
         if (userData.username !== currentUsername) {
-            console.log(userData.followers, userData.username, currentUsername)
+
             let isFollowerCurruser = userData.followers.some(user => user.username === currentUsername)
             if (!isFollowerCurruser) return <ProfileLargeThubmnail props={userData} />
             return null
@@ -41,7 +41,7 @@ const SideSection = () => {
         else {
             let input = e.target.value.toLowerCase()
             const searchResult = allUsersData.list.filter(userData => searchHelper(userData.username, input) || searchHelper(userData.firstName, input) || searchHelper(userData.lastName, input))
-            console.log('SEARCH RES', searchResult)
+
             setSearchedUsers(searchResult)
         }
 

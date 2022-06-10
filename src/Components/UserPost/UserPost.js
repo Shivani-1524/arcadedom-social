@@ -33,8 +33,7 @@ const UserPost = ({ props }) => {
         isLiked ? dispatch(dislikePost(postId)) : dispatch(likePost(postId))
     }
     const handleBookmarkPost = (isBookmarked, postId) => {
-        console.log(isBookmarked)
-        isBookmarked ? dispatch(removeBookmark(_id)) : dispatch(bookmarkPost(_id))
+        isBookmarked ? dispatch(removeBookmark(postId)) : dispatch(bookmarkPost(postId))
     }
 
     const updatePost = (e) => {

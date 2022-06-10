@@ -20,11 +20,9 @@ const SinglePostPage = () => {
     const onCommentChange = (e) => {
         let userCommentTxt = e.target.value;
         setCommentInput(userCommentTxt);
-        console.log(e.target.value)
         userCommentTxt.length === 0 ? setDisabledComments(true) : setDisabledComments(false);
     }
     const uploadComment = (e) => {
-        console.log({ postId: postId, commentData: commentInput })
         dispatch(addComment({ postId: postId, commentData: commentInput }))
         setCommentInput('')
         setDisabledComments(true)

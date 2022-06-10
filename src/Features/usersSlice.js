@@ -1,4 +1,4 @@
-import { createSlice, createAsyncThunk, current } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
 import axios from 'axios'
 
 const namespace = 'user'
@@ -7,7 +7,6 @@ const namespace = 'user'
 export const getUserPosts = createAsyncThunk(`/${namespace}/getUserPosts`, async ({ username }, { rejectWithValue }) => {
     try {
         const { data } = await axios.get(`/api/posts/user/${username}`)
-        console.log(data)
         return data.posts
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -17,7 +16,6 @@ export const getUserPosts = createAsyncThunk(`/${namespace}/getUserPosts`, async
 export const getUserData = createAsyncThunk(`/${namespace}/getUserData`, async ({ username }, { rejectWithValue }) => {
     try {
         const { data } = await axios.get(`/api/users/${username}`)
-        console.log(data)
         return data.user
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -25,10 +23,8 @@ export const getUserData = createAsyncThunk(`/${namespace}/getUserData`, async (
 })
 
 export const editUserData = createAsyncThunk(`/${namespace}/getUserData`, async ({ userData }, { rejectWithValue }) => {
-    console.log('User Data: ', { userData })
     try {
         const { data } = await axios.post(`/api/users/edit`, { userData })
-        console.log(data)
         return data.user
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -38,7 +34,6 @@ export const editUserData = createAsyncThunk(`/${namespace}/getUserData`, async 
 export const getAllUsers = createAsyncThunk(`/${namespace}/getAllUsers`, async (_, { rejectWithValue }) => {
     try {
         const { data } = await axios.get(`/api/users`)
-        console.log(data)
         return data.users
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -48,7 +43,6 @@ export const getAllUsers = createAsyncThunk(`/${namespace}/getAllUsers`, async (
 export const followUser = createAsyncThunk(`/${namespace}/followUser`, async ({ followUserId }, { rejectWithValue }) => {
     try {
         const { data } = await axios.post(`/api/users/follow/${followUserId}`)
-        console.log(data)
         return data.followUser
     } catch (err) {
         return rejectWithValue(err.response.data);
@@ -58,7 +52,6 @@ export const unfollowUser = createAsyncThunk(`/${namespace}/unfollowUser`, async
     console.log({ followUserId })
     try {
         const { data } = await axios.post(`/api/users/unfollow/${followUserId}`)
-        console.log(data)
         return data.followUser
     } catch (err) {
         return rejectWithValue(err.response.data);

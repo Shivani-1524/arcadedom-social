@@ -6,12 +6,10 @@ import { showModal } from '../../../Features/modalSlice'
 import '../profilepage.css'
 
 const UserDesc = ({ props, postCount }) => {
-    console.log(props)
     const { firstName, lastName, bioLink, bio, avatarURL, username, followers, following } = props
     const dispatch = useDispatch()
 
     const openModal = (list) => {
-        console.log(list)
         dispatch(showModal({ type: 'userlist', list: list }))
     }
 

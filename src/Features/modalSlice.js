@@ -9,7 +9,6 @@ export const modalSlice = createSlice({
     initialState: { value: initialStateValue },
     reducers: {
         showModal: (state, action) => {
-            console.log(action.payload)
             state.value.type = action.payload.type;
             state.value.userList = action.payload.list;
             state.value.display = true;

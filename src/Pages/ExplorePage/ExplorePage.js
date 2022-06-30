@@ -10,7 +10,7 @@ const ExplorePage = () => {
         dispatch(getPosts())
     }, [])
     return (
-        <div className='explore-container'>
+        <div className='mb-3'>
             <div className="mg-t-40 flex-col">
                 {postStatus === 'success' ? posts.map((post) =>
                     <UserPost props={post} key={post._id} />

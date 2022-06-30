@@ -23,9 +23,9 @@ const ProfilePage = () => {
         dispatch(getUserPosts({ username }))
         dispatch(getUserData({ username }))
     }, [username])
+
     const isFollower = userData && userData.followers.some(user => user.username === currentUsername)
     const handleFollowerClick = () => {
-
         isFollower ? dispatch(unfollowUser({ followUserId: userData._id })) : dispatch(followUser({ followUserId: userData._id }))
     }
 
@@ -41,7 +41,7 @@ const ProfilePage = () => {
             <div className="posts-listing flex-col mg-t-60">
                 {status === 'success' ?
                     (userPosts.length > 0 ?
-                        userPosts.map((post) => <UserPost props={post} key={post._id} />) : <EmptyPage />)
+                        userPosts.map((post) => <UserPost props={post} key={post._id} />).reverse() : <EmptyPage />)
                     : <p>Loading Posts...</p>}
             </div>
         </div>
